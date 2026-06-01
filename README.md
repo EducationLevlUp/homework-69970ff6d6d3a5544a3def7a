@@ -16,21 +16,31 @@
 ## Структура проекта
 
 ```
-├── README.md              # Этот файл
-├── AI_FLUENCY_PLAN.md     # Готовый план AI-грамотности (финальный артефакт)
-├── generate_plan.py       # Генератор плана (Python-скрипт)
-└── test_generate_plan.py  # Unit-тесты для генератора
+├── README.md                       # Этот файл
+├── requirements.txt                # Зависимости (python-docx)
+├── Personal_AI_Fluency_Plan_RU.md  # План AI-грамотности (Markdown)
+├── Personal_AI_Fluency_Plan_RU.docx # План AI-грамотности (DOCX)
+├── AI_FLUENCY_PLAN.md              # Готовый план AI-грамотности (финальный артефакт)
+├── generate_plan.py                # Генератор плана (Python-скрипт)
+├── generate_docx.py                # Генератор DOCX-версии плана
+└── test_generate_plan.py           # Unit-тесты для генератора
 ```
 
 ## Как запустить
 
-### 1. Проверить синтаксис
+### 1. Установить зависимости
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Проверить синтаксис
 
 ```bash
 python -m compileall .
 ```
 
-### 2. Запустить генератор плана
+### 3. Запустить генератор плана
 
 ```bash
 python generate_plan.py
@@ -38,19 +48,27 @@ python generate_plan.py
 
 По умолчанию создаёт файл `AI_FLUENCY_PLAN.md`.
 
-### 3. Запустить с кастомным автором
+### 4. Запустить генератор DOCX
+
+```bash
+python generate_docx.py
+```
+
+Создаёт файл `Personal_AI_Fluency_Plan_RU.docx`.
+
+### 5. Запустить с кастомным автором
 
 ```bash
 python generate_plan.py --author "Иван Иванов"
 ```
 
-### 4. Просмотр без записи в файл
+### 6. Просмотр без записи в файл
 
 ```bash
 python generate_plan.py --dry-run
 ```
 
-### 5. Запустить тесты
+### 7. Запустить тесты
 
 ```bash
 python -m pytest test_generate_plan.py -v
@@ -59,6 +77,7 @@ python -m pytest test_generate_plan.py -v
 ## Зависимости
 
 - **Python 3.11+** (стандартная библиотека)
+- **python-docx** — для генерации DOCX-версии плана (объявлена в `requirements.txt`)
 - **pytest** (для тестов, опционально)
 
 Никаких внешних API-ключей, токенов или сетевых запросов не требуется.
@@ -76,16 +95,17 @@ python -m pytest test_generate_plan.py -v
 
 - [x] Пройти курс AI Fluency (изучены материалы 4D-фреймворка)
 - [x] Выполнить финальное задание: Build a personal AI fluency plan
-- [x] Предоставить разработанный план (`AI_FLUENCY_PLAN.md`)
+- [x] Предоставить разработанный план (`Personal_AI_Fluency_Plan_RU.md` и `Personal_AI_Fluency_Plan_RU.docx`)
 
 ## Формат плана
 
-План представлен в формате **Markdown** и включает:
+План представлен в форматах **Markdown** и **DOCX** и включает:
 
-1. Мотивацию и цели
-2. Оценку текущего уровня по каждому измерению 4D
+1. Личные цели и мотивацию
+2. Оценку текущего уровня по каждому измерению 4D (Delegation, Description, Discernment, Diligence)
 3. Пошаговый план на 8 недель (4 фазы)
 4. Инструменты и ресурсы
-5. Метрики успеха
-6. Риски и меры смягчения
-7. Рефлексию
+5. Метрики прогресса (количественные и качественные)
+6. Безопасность и академическую честность
+7. Риски и меры смягчения
+8. Рефлексию
